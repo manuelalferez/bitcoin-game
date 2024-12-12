@@ -83,10 +83,10 @@
       }
       .trading-section {
         background: #2d2d2d;
-        padding: 1rem;
+        padding: 0.75rem;
         border-radius: 8px;
         flex: 1;
-        min-width: 300px;
+        min-width: 200px;
       }
       .price-holdings-container {
         display: flex;
@@ -252,7 +252,7 @@
       }
       .buy-buttons-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 10px;
         margin-top: 10px;
       }
@@ -261,7 +261,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px !important;
+        padding: 10px !important;
       }
       .buy-button .percentage,
       #sell-bitcoin .percentage {
@@ -702,14 +702,10 @@
       }
 
       function startOver() {
+        // If it's from the goal modal, close it first
         closeModal('goal-modal');
-        document.getElementById('welcome-screen').classList.remove('hidden');
-        document.getElementById('game-container').classList.add('hidden');
-        document.getElementById('player-name').value = '';
-        if (chart) {
-          chart.destroy();
-          chart = null;
-        }
+        // Show the confirmation modal
+        showModal('confirm-modal');
       }
 
       function closeConfirmModal() {
@@ -721,7 +717,20 @@
         document.cookie.split(";").forEach(function(c) {
           document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
         });
-        location.reload();
+        
+        // Reset the game
+        document.getElementById('welcome-screen').classList.remove('hidden');
+        document.getElementById('game-container').classList.add('hidden');
+        document.getElementById('player-name').value = '';
+        
+        // Close the confirmation modal
+        closeModal('confirm-modal');
+        
+        // Destroy chart if it exists
+        if (chart) {
+          chart.destroy();
+          chart = null;
+        }
       }
 
       function shareOnTwitter() {

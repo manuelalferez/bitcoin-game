@@ -68,12 +68,14 @@
         font-weight: bold;
         color: #f7931a;
         margin: 1rem 0;
+        text-align: center;
       }
       .balance-display {
-        background: #2d2d2d;
+        background: linear-gradient(145deg, #2d2d2d, #262626);
         padding: 1rem;
         border-radius: 8px;
         margin: 1rem 0;
+        text-align: center;
       }
       .trading-controls {
         display: flex;
@@ -292,14 +294,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.85);
         z-index: 1000;
         justify-content: center;
         align-items: center;
       }
 
       .modal-content {
-        background: #242424;
+        background: linear-gradient(145deg, #2d2d2d, #262626);
         padding: 2rem;
         border-radius: 12px;
         max-width: 500px;
@@ -307,6 +309,8 @@
         text-align: center;
         position: relative;
         animation: modalSlideIn 0.3s ease;
+        border: 1px solid rgba(247, 147, 26, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       }
 
       @keyframes modalSlideIn {
@@ -322,12 +326,50 @@
 
       .modal h2 {
         color: #f7931a;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
       }
 
       .modal p {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         color: #fff;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      .modal button {
+        min-width: 120px;
+        padding: 12px 24px;
+        margin: 10px;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .modal button.cancel-btn {
+        background: #444;
+      }
+
+      .modal button.cancel-btn:hover {
+        background: #555;
+      }
+
+      .modal button.confirm-btn {
+        background: #ff4444;
+      }
+
+      .modal button.confirm-btn:hover {
+        background: #ff2222;
+      }
+
+      .modal .fa-icon {
+        font-size: 1.2rem;
       }
 
       .social-buttons {
@@ -398,6 +440,126 @@
         transform: translateY(-5px);
         box-shadow: 0 8px 24px rgba(247, 147, 26, 0.2);
       }
+
+      /* Standard card styling */
+      .balance-display,
+      .trading-section,
+      .progress-container,
+      .history-container,
+      #game-container,
+      #welcome-screen {
+        background: linear-gradient(145deg, #2a2a2a, #242424);
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(247, 147, 26, 0.1);
+      }
+
+      /* Bitcoin price and holdings cards */
+      .balance-display {
+        background: linear-gradient(145deg, #2d2d2d, #262626);
+        border: 1px solid rgba(247, 147, 26, 0.15);
+        text-align: center;
+      }
+
+      /* Progress container with special styling */
+      .progress-container {
+        background: linear-gradient(145deg, #2c2c2c, #252525);
+        border: 1px solid rgba(247, 147, 26, 0.12);
+      }
+
+      /* Trading sections with unique background */
+      .trading-section {
+        background: linear-gradient(145deg, #2e2e2e, #272727);
+        border: 1px solid rgba(247, 147, 26, 0.1);
+      }
+
+      /* History container styling */
+      .history-container {
+        background: linear-gradient(145deg, #2b2b2b, #242424);
+        border: 1px solid rgba(247, 147, 26, 0.08);
+      }
+
+      /* Bitcoin chart container */
+      #bitcoin-chart {
+        background: linear-gradient(145deg, #2f2f2f, #282828);
+        border: 1px solid rgba(247, 147, 26, 0.1);
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Holdings items with hover effect */
+      .holdings-item {
+        background: linear-gradient(145deg, #2a2a2a, #232323);
+        border-left: 3px solid #f7931a;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .holdings-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Holdings value and gain boxes */
+      .holdings-value,
+      .holdings-gain {
+        background: linear-gradient(145deg, #2c2c2c, #252525);
+        border: 1px solid rgba(247, 147, 26, 0.1);
+        transition: transform 0.2s;
+      }
+
+      .holdings-value:hover,
+      .holdings-gain:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Difficulty cards enhanced styling */
+      .difficulty-card {
+        background: linear-gradient(145deg, #2d2d2d, #262626) !important;
+        border: 1px solid rgba(247, 147, 26, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .difficulty-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(247, 147, 26, 0.2);
+        border: 1px solid rgba(247, 147, 26, 0.2);
+      }
+
+      /* Modal content styling */
+      .modal-content {
+        background: linear-gradient(145deg, #2d2d2d, #262626);
+        border: 1px solid rgba(247, 147, 26, 0.15);
+      }
+
+      /* Achievement card styling */
+      #achievement-card {
+        background: linear-gradient(145deg, #2e2e2e, #272727) !important;
+        border: 1px solid rgba(247, 147, 26, 0.2);
+      }
+
+      /* Header and footer consistent styling */
+      header,
+      footer {
+        background: linear-gradient(145deg, #2d2d2d, #262626) !important;
+        border: 1px solid rgba(247, 147, 26, 0.1);
+      }
+
+      /* Update the balance-display container */
+      .balance-display {
+        background: linear-gradient(145deg, #2d2d2d, #262626);
+        border: 1px solid rgba(247, 147, 26, 0.15);
+        text-align: center;
+      }
+
+      /* Update the heading style */
+      .balance-display h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
   <body>
@@ -437,10 +599,21 @@
 
     <div id="confirm-modal" class="modal">
       <div class="modal-content">
-        <h2><i class="fa-solid fa-question-circle fa-icon"></i>Confirm</h2>
-        <p>Are you sure you want to start over? All progress will be lost.</p>
-        <button onclick="confirmStartOver()">Yes, Start Over</button>
-        <button onclick="closeConfirmModal()" style="background: #666;">Cancel</button>
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation fa-icon"></i>
+          Confirm Start Over
+        </h2>
+        <p>Are you sure you want to start over? All progress and trading history will be lost.</p>
+        <div>
+          <button onclick="confirmStartOver()" class="confirm-btn">
+            <i class="fa-solid fa-check fa-icon"></i>
+            Yes, Start Over
+          </button>
+          <button onclick="closeConfirmModal()" class="cancel-btn">
+            <i class="fa-solid fa-xmark fa-icon"></i>
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
 
@@ -499,10 +672,10 @@
             <div style="margin-bottom: 15px;">
               <i class="fa-solid fa-seedling fa-2x" style="color: #4CAF50;"></i>
               <h4 style="margin: 10px 0;">Beginner</h4>
-              <p style="color: #888; font-size: 0.9em;">Perfect for new traders</p>
+              <p style="color: #888; font-size: 0.9em;">Start: $40K → Goal: $50K</p>
             </div>
-            <button onclick="startGame('1K')" style="width: 100%; padding: 12px; background: #4CAF50;">
-              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$1K
+            <button onclick="startGame('50K')" style="width: 100%; padding: 12px; background: #4CAF50;">
+              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$50K
             </button>
           </div>
           
@@ -510,10 +683,10 @@
             <div style="margin-bottom: 15px;">
               <i class="fa-solid fa-chart-line fa-2x" style="color: #2196F3;"></i>
               <h4 style="margin: 10px 0;">Trader</h4>
-              <p style="color: #888; font-size: 0.9em;">For experienced players</p>
+              <p style="color: #888; font-size: 0.9em;">Start: $750K → Goal: $1M</p>
             </div>
-            <button onclick="startGame('100K')" style="width: 100%; padding: 12px; background: #2196F3;">
-              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$100K
+            <button onclick="startGame('1M')" style="width: 100%; padding: 12px; background: #2196F3;">
+              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$1M
             </button>
           </div>
           
@@ -521,10 +694,10 @@
             <div style="margin-bottom: 15px;">
               <i class="fa-solid fa-dragon fa-2x" style="color: #F44336;"></i>
               <h4 style="margin: 10px 0;">Expert</h4>
-              <p style="color: #888; font-size: 0.9em;">For the fearless</p>
+              <p style="color: #888; font-size: 0.9em;">Start: $50M → Goal: $100M</p>
             </div>
-            <button onclick="startGame('1M')" style="width: 100%; padding: 12px; background: #F44336;">
-              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$1M
+            <button onclick="startGame('100M')" style="width: 100%; padding: 12px; background: #F44336;">
+              <i class="fa-solid fa-coins fa-icon" style="margin-right: 8px; color: white;"></i>$100M
             </button>
           </div>
         </div>
@@ -681,7 +854,7 @@
       </button>
     </div>
 
-    <footer style="text-align: center; background: #242424; padding: 1.5rem; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <footer style="text-align: center; background: #242424; padding: 1.5rem; border-radius: 12px; margin-top: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 10px;">
         <a href="https://twitter.com/manuelalferez" target="_blank" style="color: #1DA1F2; text-decoration: none; display: flex; align-items: center; gap: 5px;">
           <i class="fa-brands fa-x-twitter"></i>
@@ -716,9 +889,10 @@
       }
 
       function startOver() {
-        // If it's from the goal modal, just go back to welcome screen
+        // If it's from the goal modal, just go back to welcome screen and clear cookies
         if (document.getElementById('goal-modal').style.display === 'flex') {
           closeModal('goal-modal');
+          clearAllCookies();
           document.getElementById('welcome-screen').classList.remove('hidden');
           document.getElementById('game-container').classList.add('hidden');
           document.getElementById('player-name').value = '';
@@ -734,10 +908,7 @@
       }
 
       function confirmStartOver() {
-        // Clear cookies
-        document.cookie.split(";").forEach(function(c) {
-          document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-        });
+        clearAllCookies();
         
         // Reset the game
         document.getElementById('welcome-screen').classList.remove('hidden');
@@ -779,6 +950,26 @@
         bitcoinHoldings = parseFloat(getCookie("bitcoinHoldings")) || 0;
         totalInvested = parseFloat(getCookie("totalInvested")) || 0;
         tradingHistory = JSON.parse(getCookie("tradingHistory") || "[]");
+        
+        // Load the new values
+        const lastBitcoinPrice = parseFloat(getCookie("lastBitcoinPrice")) || 0;
+        if (lastBitcoinPrice) {
+          document.getElementById("current-price-display").textContent = lastBitcoinPrice.toLocaleString();
+        }
+        
+        const portfolioValue = parseFloat(getCookie("portfolioValue")) || 0;
+        if (portfolioValue) {
+          document.getElementById("holdings-value").textContent = portfolioValue.toFixed(2);
+        }
+        
+        const netProfitLoss = parseFloat(getCookie("netProfitLoss")) || 0;
+        if (netProfitLoss) {
+          const gainLossSpan = document.getElementById("holdings-gain");
+          gainLossSpan.textContent = "$" + (netProfitLoss >= 0 ? "+" : "") + netProfitLoss.toFixed(2);
+          gainLossSpan.classList.remove("positive", "negative");
+          if (netProfitLoss > 0) gainLossSpan.classList.add("positive");
+          if (netProfitLoss < 0) gainLossSpan.classList.add("negative");
+        }
 
         // Convert date strings back to Date objects in trading history
         tradingHistory = tradingHistory.map((t) => ({
@@ -795,6 +986,16 @@
         setCookie("bitcoinHoldings", bitcoinHoldings.toString(), 30);
         setCookie("totalInvested", totalInvested.toString(), 30);
         setCookie("tradingHistory", JSON.stringify(tradingHistory), 30);
+        
+        // Save the new values
+        const currentPrice = parseFloat(document.getElementById("current-price-display").textContent.replace(/,/g, ""));
+        setCookie("lastBitcoinPrice", currentPrice.toString(), 30);
+        
+        const portfolioValue = parseFloat(document.getElementById("holdings-value").textContent);
+        setCookie("portfolioValue", portfolioValue.toString(), 30);
+        
+        const netProfitLoss = parseFloat(document.getElementById("holdings-gain").textContent.replace(/[^-\d.]/g, ""));
+        setCookie("netProfitLoss", netProfitLoss.toString(), 30);
       }
 
       // Cookie helper functions
@@ -843,7 +1044,6 @@
           nameInput.classList.add("input-error");
           errorMessage.style.display = "block";
           
-          // Remove the error state after animation
           setTimeout(() => {
             nameInput.classList.remove("input-error");
           }, 500);
@@ -851,21 +1051,24 @@
           return;
         }
         
-        // Clear any previous error states
         nameInput.classList.remove("input-error");
         errorMessage.style.display = "none";
+        
+        clearAllCookies();
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         
         playerName = nameInput.value;
         goal = selectedGoal;
         switch (selectedGoal) {
-          case "1K":
-            balance = 950;
-            break;
-          case "100K":
-            balance = 50000;
+          case "50K":
+            balance = 40000; // Beginner: Start with 40K, goal is 50K
             break;
           case "1M":
-            balance = 100000;
+            balance = 750000; // Trader: Start with 750K, goal is 1M
+            break;
+          case "100M":
+            balance = 50000000; // Expert: Start with 50M, goal is 100M
             break;
         }
 
@@ -878,6 +1081,12 @@
         document.getElementById(
           "game-avatar"
         ).src = `https://api.dicebear.com/9.x/adventurer/svg?seed=${playerName}`;
+
+        // Reset displays
+        document.getElementById("current-price-display").textContent = "0";
+        document.getElementById("holdings-value").textContent = "0.00";
+        document.getElementById("holdings-gain").textContent = "$0.00";
+        document.getElementById("btc-holdings").textContent = "0.0000";
 
         updateProgress();
         saveToCookies();
@@ -936,8 +1145,7 @@
                 "$" +
                 transaction.gain.toLocaleString()
               : "-"
-          }</td>f
-          `;
+          }</td>`;
           tbody.appendChild(row);
         });
       }
@@ -1158,6 +1366,33 @@
         // Open Twitter share dialog
         const text = `I just reached my goal of $${goal} in the Bitcoin Trading Game! 🎉 Can you beat my score?`;
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
+      }
+
+      // Add this new helper function to clear all cookies
+      function clearAllCookies() {
+        const cookiesToClear = [
+          "playerName", "goal", "balance", "bitcoinHoldings", "totalInvested", 
+          "tradingHistory", "lastBitcoinPrice", "portfolioValue", "netProfitLoss"
+        ];
+        
+        cookiesToClear.forEach(cookieName => {
+          document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        });
+
+        // Reset game variables
+        playerName = "";
+        goal = "";
+        balance = 0;
+        bitcoinHoldings = 0;
+        totalInvested = 0;
+        tradingHistory = [];
+        priceHistory = [];
+
+        // Clear the trading history table
+        const tbody = document.getElementById("history-tbody");
+        if (tbody) {
+          tbody.innerHTML = "";
+        }
       }
     </script>
   </body>

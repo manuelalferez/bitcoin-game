@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bitcoin Trading Game</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -415,9 +416,22 @@
       <div class="modal-content">
         <h2><i class="fa-solid fa-trophy fa-icon"></i>Congratulations!</h2>
         <p>You've reached your goal of $<span id="goal-amount"></span>! 🎉</p>
-        <button onclick="startOver()">
-          <i class="fa-solid fa-rotate-left fa-icon"></i>Start New Game
-        </button>
+        
+        <!-- Achievement Card that will be converted to image -->
+        <div id="achievement-card" style="background: #2d2d2d; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+          <img id="achievement-avatar" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;" />
+          <h3 style="color: #f7931a; margin: 10px 0;"><span id="achievement-name"></span></h3>
+          <p style="color: #fff;">Reached $<span id="achievement-amount"></span> in the Bitcoin Trading Game! 🚀</p>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: center;">
+          <button onclick="shareAchievement()" style="background: #1DA1F2;">
+            <i class="fa-brands fa-x-twitter fa-icon"></i>Share on X
+          </button>
+          <button onclick="startOver()" style="background: #666;">
+            <i class="fa-solid fa-rotate-left fa-icon"></i>Start Over
+          </button>
+        </div>
       </div>
     </div>
 
@@ -702,9 +716,16 @@
       }
 
       function startOver() {
-        // If it's from the goal modal, close it first
-        closeModal('goal-modal');
-        // Show the confirmation modal
+        // If it's from the goal modal, just go back to welcome screen
+        if (document.getElementById('goal-modal').style.display === 'flex') {
+          closeModal('goal-modal');
+          document.getElementById('welcome-screen').classList.remove('hidden');
+          document.getElementById('game-container').classList.add('hidden');
+          document.getElementById('player-name').value = '';
+          return;
+        }
+        
+        // Otherwise, show the confirmation modal
         showModal('confirm-modal');
       }
 
@@ -1091,8 +1112,12 @@
             updateDisplays();
 
             const goalAmount = parseInt(goal.replace("K", "000").replace("M", "000000"));
-            if (balance + (bitcoinHoldings * currentPrice) >= goalAmount) {
+            if (balance >= goalAmount) {
               document.getElementById('goal-amount').textContent = goalAmount.toLocaleString();
+              document.getElementById('achievement-avatar').src = document.getElementById('game-avatar').src;
+              document.getElementById('achievement-name').textContent = playerName;
+              document.getElementById('achievement-amount').textContent = goal.replace('K', ',000').replace('M', ',000,000');
+              
               showModal('goal-modal');
             }
           }
@@ -1104,6 +1129,36 @@
         this.classList.remove("input-error");
         document.getElementById("name-error").style.display = "none";
       });
+
+      async function generateAchievementImage() {
+        // Update achievement card content
+        document.getElementById('achievement-avatar').src = document.getElementById('game-avatar').src;
+        document.getElementById('achievement-name').textContent = playerName;
+        document.getElementById('achievement-amount').textContent = goal.replace('K', ',000').replace('M', ',000,000');
+
+        try {
+          // Convert the achievement card to canvas using html2canvas
+          const canvas = await html2canvas(document.getElementById('achievement-card'));
+          return canvas.toDataURL('image/png');
+        } catch (error) {
+          console.error('Error generating image:', error);
+          return null;
+        }
+      }
+
+      async function shareAchievement() {
+        const imageData = await generateAchievementImage();
+        if (!imageData) {
+          // Fallback to text-only tweet if image generation fails
+          const text = `I just reached my goal of $${goal} in the Bitcoin Trading Game! 🎉 Can you beat my score?`;
+          window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
+          return;
+        }
+
+        // Open Twitter share dialog
+        const text = `I just reached my goal of $${goal} in the Bitcoin Trading Game! 🎉 Can you beat my score?`;
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
+      }
     </script>
   </body>
 </html>

@@ -1381,15 +1381,15 @@
 
       async function shareAchievement() {
         const imageData = await generateAchievementImage();
+        const text = `🎯 Achievement unlocked: I turned my starting investment into $${goal} in the Bitcoin Trading Game! 💰 Think you can beat me?\n\nTest your trading skills now: bitcoin-game.manuelalferez.com 🚀`;
+
         if (!imageData) {
           // Fallback to text-only tweet if image generation fails
-          const text = `I just reached my goal of $${goal} in the Bitcoin Trading Game! 🎉 Can you beat my score?`;
           window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
           return;
         }
 
         // Open Twitter share dialog
-        const text = `I just reached my goal of $${goal} in the Bitcoin Trading Game! 🎉 Can you beat my score?`;
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
       }
 

@@ -6,16 +6,23 @@
     <title>Bitcoin Trading Game</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23f7931a'/><path fill='white' d='M347.1 35.9C336.6 30.7 324.2 31 310.9 37l-2.5 1.3l-158.4 158.4C108.5 238.2 82.3 307.1 93.7 375.9c2.8 17.7 12.9 33.9 28 44.4c10.5 5.2 22.9 4.9 36.2-1.1l2.5-1.3l158.4-158.4c41.5-41.5 67.7-110.4 56.3-179.2c-2.8-17.7-12.9-33.9-28-44.4zm-33.7 64.9c11.5 73.9-10.8 135.8-49.5 174.5L160 379.2c-10.1 2.2-16.2-3.9-13.9-13.9l103.9-103.9c38.7-38.7 100.6-61 174.5-49.5c-8.2-45.5-40.9-81.3-83.7-106.9c-6.1-1.6-19.3 1.5-27.4-3.2z'/></svg>">
-    
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="https://api.iconify.design/mdi:bitcoin.svg?color=%23f7931a"
+    />
+
     <!-- iOS meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Bitcoin Trading Game">
-    
+
     <!-- iOS icon -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23f7931a'/><path fill='white' d='M347.1 35.9C336.6 30.7 324.2 31 310.9 37l-2.5 1.3l-158.4 158.4C108.5 238.2 82.3 307.1 93.7 375.9c2.8 17.7 12.9 33.9 28 44.4c10.5 5.2 22.9 4.9 36.2-1.1l2.5-1.3l158.4-158.4c41.5-41.5 67.7-110.4 56.3-179.2c-2.8-17.7-12.9-33.9-28-44.4zm-33.7 64.9c11.5 73.9-10.8 135.8-49.5 174.5L160 379.2c-10.1 2.2-16.2-3.9-13.9-13.9l103.9-103.9c38.7-38.7 100.6-61 174.5-49.5c-8.2-45.5-40.9-81.3-83.7-106.9c-6.1-1.6-19.3 1.5-27.4-3.2z'/></svg>">
-    
+    <link 
+      rel="apple-touch-icon" 
+      href="https://api.iconify.design/mdi:bitcoin.svg?color=%23f7931a&size=180"
+    />
+
     <!-- Web App Manifest (using inline data) -->
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkJpdGNvaW4gVHJhZGluZyBHYW1lIiwKICAic2hvcnRfbmFtZSI6ICJCVEcgR2FtZSIsCiAgImljb25zIjogW3sKICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHJlY3Qgd2lkdGg9JzUxMicgaGVpZ2h0PSc1MTInIGZpbGw9JyNmNzkzMWEnLz48cGF0aCBmaWxsPSd3aGl0ZScgZD0nTTUwNCAyNTZjMCAxMzYuOTY3LTExMS4wMzMgMjQ4LTI0OCAyNDhTOCAzOTIuOTY3IDggMjU2IDExOS4wMzMgOCAyNTYgOHMyNDggMTExLjAzMyAyNDggMjQ4em0tMTQxLjY1MS0zNS4zM2M0LjkzNy0zMi45OTktMjAuMTkxLTUwLjczOS01NC41NS02Mi41NzNsMTEuMTQ2LTQ0LjcwMi0yNy4yMTMtNi43ODEtMTAuODUxIDQzLjUyNGMtNy4xNTQtMS43ODMtMTQuNTAyLTMuNDY0LTIxLjgwMy01LjEzbDEwLjkyOS00My44MS0yNy4xOTgtNi43ODEtMTEuMTUzIDQ0LjY4NmMtNS45MjItMS4zNDktMTEuNzM1LTIuNjgyLTE3LjM3Ny00LjA4NGwuMDMxLS4xNC0zNy41My05LjM3LTcuMjM5IDI5LjA2MnMyMC4xOTEgNC42MjcgMTkuNzY1IDQuOTEzYzExLjAyMiAyLjc1MSAxMy4wMTQgMTAuMDQ0IDEyLjY4IDE1LjgyNWwtMTIuNjk2IDUwLjkyNWMuNzYuMTk0IDEuNzQ0LjQ3MyAyLjgyOS45MDctLjkwNy0uMjI1LTEuODc2LS40NzMtMi44NzYtLjcxM2wtMTcuNzk2IDcxLjMzOGMtMS4zNDkgMy4zNDgtNC43NjcgOC4zNy0xMi40NzEgNi40NjQuMjcxLjM5NS0xOS43OC00LjkzNy0xOS43OC00LjkzN2wtMTMuNTEgMzEuMTQ3IDM1LjQxNCA4LjgyN2M2LjU4OCAxLjY1MSAxMy4wNDUgMy4zNzkgMTkuNCA1LjAwNmwtMTEuMjYyIDQ1LjIxMyAyNy4xODIgNi43ODEgMTEuMTUzLTQ0LjczM2ExMDM4LjIwOSAxMDM4LjIwOSAwIDAgMCAyMS42ODcgNS42MjdsLTExLjExNSA0NC41MjMgMjcuMjEzIDYuNzgxIDExLjI2Mi00NS4xMjhjNDYuNDA0IDguNzgxIDgxLjI5OSA1LjIzOSA5NS45ODYtMzYuNzI3IDExLjgzNi0zMy43OS0uNTg5LTUzLjI4MS0yNS4wMDQtNjUuOTkxIDE3Ljc4LTQuMDk4IDMxLjE3NC0xNS43OTIgMzQuNzQ3LTM5Ljk0OXptLTYyLjE3NyA4Ny4xNzljLTguNDEgMzMuNzktNjUuMzA4IDE1LjUyMy04My43NTUgMTAuOTQzbDE0Ljk0NC01OS44OTljMTguNDQ2IDQuNjAzIDc3LjYgMTMuNzE3IDY4LjgxMSA0OC45NTZ6bTguNDE3LTg3LjY2N2MtNy42NzMgMzAuNzM2LTU1LjAzMSAxNS4xMi03MC4zOTMgMTEuMjkybDEzLjU0OC01NC4zMjdjMTUuMzYzIDMuODI4IDY0LjgzNiAxMC45NzMgNTYuODQ1IDQzLjAzNXonLz48L3N2Zz4iLAogICAgInNpemVzIjogIjUxMng1MTIiLAogICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICB9XSwKICAidGhlbWVfY29sb3IiOiAiI2Y3OTMxYSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzI0MjQyNCIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIKfQ==">
     
@@ -590,7 +597,7 @@
   <body>
     <header style="text-align: center; background: #242424; padding: 1.5rem; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <h1 style="margin: 0; color: #f7931a;">
-        <i class="fa-brands fa-bitcoin fa-icon"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;"><path fill="currentColor" d="M14.24 10.56c-.31 1.24-2.24.61-2.84.44l.55-2.18c.62.18 2.61.44 2.29 1.74m-3.11 1.56l-.6 2.41c.74.19 3.03.92 3.37-.44c.36-1.42-2.03-1.79-2.77-1.97m10.57 2.3c-1.34 5.36-6.76 8.62-12.12 7.28S.963 14.94 2.3 9.58A9.996 9.996 0 0 1 14.42 2.3c5.35 1.34 8.61 6.76 7.28 12.12m-7.49-6.37l.45-1.8l-1.1-.25l-.44 1.73c-.29-.07-.58-.14-.88-.2l.44-1.77l-1.09-.26l-.45 1.79c-.24-.06-.48-.11-.7-.17l-1.51-.38l-.3 1.17s.82.19.8.2c.45.11.53.39.51.64l-1.23 4.93c-.05.14-.21.32-.5.27c.01.01-.8-.2-.8-.2L6.87 15l1.42.36c.27.07.53.14.79.2l-.46 1.82l1.1.28l.45-1.81c.3.08.59.15.87.23l-.45 1.79l1.1.28l.46-1.82c1.85.35 3.27.21 3.85-1.48c.5-1.35 0-2.15-1-2.66c.72-.19 1.26-.64 1.41-1.62c.2-1.33-.82-2.04-2.2-2.52"/></svg>
         Bitcoin Trading Game
       </h1>
       <p style="margin: 10px 0 0 0; color: #888;">
